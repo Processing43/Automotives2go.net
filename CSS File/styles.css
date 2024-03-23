@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotives2Go</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing styles */
+
+        /* Animation */
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* Apply animations */
+        .contact-section, .service, .disclosures-section {
+            animation: slideInFromRight 0.5s ease-out forwards;
+        }
+
+        .nav-tabs a {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Chat bubble */
+        .chat-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 9999; /* Ensure it's above other elements */
+            animation: slideInFromBottom 0.5s ease-out forwards;
+        }
+
+        .chat-bubble:hover {
+            background-color: #005faa;
+            transform: scale(1.1);
+        }
+
+        /* Chat form */
+        .chat-form {
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 300px;
+            display: none;
+            z-index: 9998; /* Ensure it's above other elements except the bubble */
+            animation: slideInFromBottom 0.5s ease-out forwards;
+        }
+
+        .chat-form.active {
+            display: block;
+        }
+
+        .chat-form h2 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .chat-form input[type="text"],
+        .chat-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chat-form .submit-button {
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-form .submit-button:hover {
+            background-color: #005faa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Your existing content -->
+    </div>
+
+    <!-- Chat bubble -->
+    <div class="chat-bubble" onclick="toggleChatForm()">Chat</div>
+
+    <!-- Chat form -->
+    <div class="chat-form" id="chatForm">
+        <h2>Request a Quote</h2>
+        <form action="mailto:example@example.com" method="post" enctype="text/plain">
+            <input type="text" name="makeAndModel" placeholder="Make and Model" required><br>
+            <input type="text" name="year" placeholder="Year" required><br>
+            <textarea name="description" placeholder="Brief Description" required></textarea><br>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to toggle chat form visibility
+        function toggleChatForm() {
+            var chatForm = document.getElementById("chatForm");
+            chatForm.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
