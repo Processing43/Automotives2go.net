@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotives2Go</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #00aaff;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .nav-tabs {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .nav-tabs a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: bold;
+            background-color: #f0f0f0;
+            border: 2px solid transparent;
+            display: inline-block;
+        }
+        .nav-tabs a:hover {
+            background-color: #0077cc;
+            color: #fff;
+        }
+        .service {
+            margin-bottom: 50px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+        }
+        .service h2 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .service p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .contact-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .contact-section h2 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .contact-section p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .disclosures-section {
+            display: none;
+            margin-bottom: 50px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .disclosures-section.active {
+            display: block;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #005faa;
+        }
+
+        /* Chat bubble and window styles */
+        .quote-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0077cc;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+        .quote-button:hover {
+            background-color: #005faa;
+        }
+
+        .quote-window {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 9998;
+        }
+
+        .quote-window.active {
+            display: block;
+        }
+
+        .quote-window input[type="text"],
+        .quote-window textarea {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Automotives2Go</h1>
+        <div class="nav-tabs">
+            <a href="#" onclick="scrollToTop()">Home</a>
+            <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+            <a href="#disclosures" onclick="toggleDisclosures()">Disclosures</a>
+        </div>
+        <div class="contact-section" id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to get in touch with us via email or Instagram.</p>
+            <p>Email:<a href="mailto:lewisgreenfamily@gmail.com">lewisgreenfamily@gmail.com</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/Automotives2Go/">Automotives2Go</a></p>
+        </div>
+        <div class="service" id="automotive-services">
+            <h2>Automotive Services</h2>
+            <p>Brake jobs, Repairs, Diagnosis, Oil change, Spark plugs, Radiator flush. Not seeing the services you need? Send me a message and I'll let you know if I can offer you the service you need.</p>
+        </div>
+        <div class="service" id="selling-vehicle">
+            <h2>Interested in Selling Your Vehicle?</h2>
+            <p>Tired of having that car/truck in front of your house? Send me a message and I'll check out your vehicle. It must crank and have a working transmission. Please have a motor and transmission, no biohazards or moldy interiors.</p>
+        </div>
+        <div class="service" id="traveling-limits">
+            <h2>Traveling Limits</h2>
+            <p>Portland, Vancouver no traveling fee. Happy Valley, Gresham and further a traveling fee will be added.</p>
+        </div>
+        <div class="service" id="about-section">
+            <h2>About</h2>
+            <p>Small business interested in repairing cars. I always had a hard time finding a local mobile mechanic so I decided to become a hybrid and offer mobile auto services including selling cars. Tired of paying dealership prices for simple services and being upsold on a bunch of nonsense you really don't need, I decided I'd be the change in that I won't upsell you and if you would like to I'll even let you bring your own parts and just pay for the labor.</p>
+        </div>
+        <div class="disclosures-section" id="disclosures" style="display:none;">
+            <h2>Disclosures</h2>
+            <p>If I cannot find the problem or repair the problem you will be refunded fully. 30 day warranty on all repairs done by me. Show the damaged part or failed repair and you’ll have a choice of a free repair or full money back guarantee. Prices shown include parts and labor (you can buy your own parts as well and pay labor only.) When you verbally agree to my services you are agreeing that you have read the disclosures and that you are responsible for your vehicle after the 30 day warranty. I am not responsible for any damage caused by irresponsible driving nor am I responsible for any damage you may cause to the repaired part after 30 days, Unless you can show me that I am directly or indirectly responsible to an object on your vehicle breaking. If you bring your own vehicle parts you are responsible for the quality of the part and any failure that it may have regarding the quality of the part, if you buy a cheaply made part from amazon or anywhere else you are responsible for any premature failures it would have not regarding the repair. (Example: you buy a cheap 02 sensor from amazon and it burns out I’ll l check to see if its an electrical issue but if not then it is on you to bare the cost of a new part)</p>
+        </div>
+
+        <!-- Request a Quote button -->
+        <div class="quote-button" onclick="toggleQuote()">Request a Quote</div>
+
+        <!-- Quote window -->
+        <div id="quote-window" class="quote-window">
+            <h3>Request a Quote</h3>
+            <input type="text" id="makeModel" placeholder="Make and Model">
+            <input type="text" id="year" placeholder="Year">
+            <select id="transmission">
+                <option value="automatic">Automatic</option>
+                <option value="manual">Manual</option>
+            </select>
+            <textarea id="message" placeholder=" I have a check engine light and im not sure whats causing it, do you mind checking it out?"></textarea>
+            <input type="email" id="email" placeholder="Your Email">
+            <button class="submit-button" onclick="sendEmail()">Send</button>
+        </div>
+
+        <script>
+            function toggleQuote() {
+                var quoteWindow = document.getElementById('quote-window');
+                quoteWindow.classList.toggle('active');
+            }
+
+            function toggleDisclosures() {
+                var disclosuresSection = document.getElementById('disclosures');
+                disclosuresSection.style.display = (disclosuresSection.style.display === 'block') ? 'none' : 'block';
+            }
+
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function scrollToSection(sectionId) {
+                var section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            function sendEmail() {
+                var makeModel = document.getElementById('makeModel').value;
+                var year = document.getElementById('year').value;
+                var transmission = document.getElementById('transmission').value;
+                var message = document.getElementById('message').value;
+                var email = document.getElementById('email').value;
+
+                // Constructing mailto link
+                var subject = encodeURIComponent('Quote Request');
+                var body = encodeURIComponent('Make and Model: ' + makeModel + '\nYear: ' + year + '\nTransmission: ' + transmission + '\nMessage: ' + message + '\nEmail: ' + email);
+                var mailtoLink = 'mailto:lewisgreenfamily@gmail.com?subject=' + subject + '&body=' + body;
+
+                // Open default email client with pre-filled information
+                window.location.href = mailtoLink;
+
+                // Optionally, you can clear the form fields after sending the email
+                document.getElementById('makeModel').value = '';
+                document.getElementById('year').value = '';
+                document.getElementById('transmission').value = 'automatic';
+                document.getElementById('message').value = '';
+                document.getElementById('email').value = '';
+
+                // Close the quote window
+                toggleQuote();
+            }
+        </script>
+    </div>
+</body>
+</html>
