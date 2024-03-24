@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Automotives2Go</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -135,6 +135,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: none;
             z-index: 9998;
+            max-width: 90%;
         }
 
         .quote-window.active {
@@ -142,13 +143,16 @@
         }
 
         .quote-window input[type="text"],
-        .quote-window textarea {
+        .quote-window textarea,
+        .quote-window select,
+        .quote-window button {
             width: calc(100% - 20px);
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             resize: none;
+            font-family: 'Roboto', sans-serif;
         }
     </style>
 </head>
@@ -175,9 +179,11 @@
             <h2>Interested in Selling Your Vehicle?</h2>
             <p>Tired of having that car/truck in front of your house? Send me a message and I'll check out your vehicle. It must crank and have a working transmission. Please have a motor and transmission, no biohazards or moldy interiors.</p>
         </div>
-        <div class="service" id="traveling-limits">
+        <div class="service" id="
+traveling-limits">
             <h2>Traveling Limits</h2>
-            <p>Portland, Vancouver no traveling fee. Happy Valley, Gresham and further a traveling fee will be added.</
+            <p>Portland, Vancouver no traveling fee. Happy Valley, Gresham and further a traveling fee will be added.</p>
+        </div>
         <div class="service" id="about-section">
             <h2>About</h2>
             <p>Small business interested in repairing cars. I always had a hard time finding a local mobile mechanic so I decided to become a hybrid and offer mobile auto services including selling cars. Tired of paying dealership prices for simple services and being upsold on a bunch of nonsense you really don't need, I decided I'd be the change in that I won't upsell you and if you would like to I'll even let you bring your own parts and just pay for the labor.</p>
@@ -199,7 +205,7 @@
                 <option value="automatic">Automatic</option>
                 <option value="manual">Manual</option>
             </select>
-            <textarea id="message" placeholder=" I have a check engine light and im not sure whats causing it, do you mind checking it out?"></textarea>
+            <textarea id="message" placeholder="I have a check engine light and I'm not sure what's causing it. Could you please check?"></textarea>
             <input type="email" id="email" placeholder="Your Email">
             <button class="submit-button" onclick="sendEmail()">Send</button>
         </div>
