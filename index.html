@@ -192,30 +192,17 @@
             <h2>Disclosures</h2>
             <p>If I cannot find the problem or repair the problem you will be refunded fully. 30 day warranty on all repairs done by me. Show the damaged part or failed repair and you’ll have a choice of a free repair or full money back guarantee. Prices shown include parts and labor (you can buy your own parts as well and pay labor only.) When you verbally agree to my services you are agreeing that you have read the disclosures and that you are responsible for your vehicle after the 30 day warranty. I am not responsible for any damage caused by irresponsible driving nor am I responsible for any damage you may cause to the repaired part after 30 days, Unless you can show me that I am directly or indirectly responsible to an object on your vehicle breaking. If you bring your own vehicle parts you are responsible for the quality of the part and any failure that it may have regarding the quality of the part, if you buy a cheaply made part from amazon or anywhere else you are responsible for any premature failures it would have not regarding the repair. (Example: you buy a cheap 02 sensor from amazon and it burns out I’ll l check to see if its an electrical issue but if not then it is on you to bare the cost of a new part)</p>
         </div>
-
-        <!-- Request a Quote button -->
-        <div class="quote-button" onclick="toggleQuote()">Request a Quote</div>
-
-        <!-- Quote window -->
-        <div id="quote-window" class="quote-window">
-            <h3>Request a Quote</h3>
-            <input type="text" id="makeModel" placeholder="Make and Model">
-            <input type="text" id="year" placeholder="Year">
-            <select id="transmission">
-                <option value="automatic">Automatic</option>
-                <option value="manual">Manual</option>
-            </select>
-            <textarea id="message" placeholder="I have a check engine light and I'm not sure what's causing it. Can you check it out?"></textarea>
-            <input type="email" id="email" placeholder="Your Email">
-            <button class="submit-button" onclick="sendEmail()">Send</button>
+        <div class="quote-instructions">
+            <h2>Requesting a Quote</h2>
+            <p>To request a quote, please contact us through one of the following methods:</p>
+            <ul>
+                <li>Send us an email at <a href="mailto:lewisgreenfamily@gmail.com">lewisgreenfamily@gmail.com</a></li>
+                <li>Call us at <a href="tel:+123456789">+1 (971) 533-9337</a></li>
+                <li>Direct message us on Instagram: <a href="https://www.instagram.com/Automotives2Go/">Automotives2Go</a></li>
+            </ul>
+            <p>We'll be happy to provide you with a personalized quote based on your needs.</p>
         </div>
-
         <script>
-            function toggleQuote() {
-                var quoteWindow = document.getElementById('quote-window');
-                quoteWindow.classList.toggle('active');
-            }
-
             function toggleDisclosures() {
                 var disclosuresSection = document.getElementById('disclosures');
                 disclosuresSection.style.display = (disclosuresSection.style.display === 'block') ? 'none' : 'block';
@@ -230,32 +217,6 @@
                 if (section) {
                     section.scrollIntoView({ behavior: 'smooth' });
                 }
-            }
-
-            function sendEmail() {
-                var makeModel = document.getElementById('makeModel').value;
-                var year = document.getElementById('year').value;
-                var transmission = document.getElementById('transmission').value;
-                var message = document.getElementById('message').value;
-                var email = document.getElementById('email').value;
-
-                // Constructing mailto link
-                var subject = encodeURIComponent('Quote Request');
-                var body = encodeURIComponent('Make and Model: ' + makeModel + '\nYear: ' + year + '\nTransmission: ' + transmission + '\nMessage: ' + message + '\nEmail: ' + email);
-                var mailtoLink = 'mailto:lewisgreenfamily@gmail.com?subject=' + subject + '&body=' + body;
-
-                // Open default email client with pre-filled information
-                window.location.href = mailtoLink;
-
-                // Optionally, you can clear the form fields after sending the email
-                document.getElementById('makeModel').value = '';
-                document.getElementById('year').value = '';
-                document.getElementById('transmission').value = 'automatic';
-                document.getElementById('message').value = '';
-                document.getElementById('email').value = '';
-
-                // Close the quote window
-                toggleQuote();
             }
         </script>
     </div>
